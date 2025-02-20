@@ -7,7 +7,7 @@ class MyBird extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 60, // Altura del contenedor
       width: 60, // Ancho del contenedor
       child: Image.asset(

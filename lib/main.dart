@@ -1,20 +1,18 @@
 
 
-import 'package:flappy_bird_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage()
+    return SizedBox(
+      height: 60, // Altura del contenedor
+      width: 60, // Ancho del contenedor
+      child: Image.asset(
+        'lib/images/flappybird.png', // Ruta de la imagen del pájaro
+      ),
     );
   }
 }
