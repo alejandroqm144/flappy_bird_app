@@ -1,5 +1,4 @@
-
-
+import 'dart:async';
 import 'package:flappy_bird_app/bird.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +10,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  double birdY = 0;
+
+  void jump() {
+    Timer.periodic(Duration(milliseconds: 100), (timer) {
+      setState(() {
+        birdY -= 0.1;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +27,14 @@ class _HomePageState extends State<HomePage> {
         children: [
           Expanded(
             flex: 3,
-            child: Container(
-              color: Colors.blue,
-              child: Center(child: MyBird()),
+            child: GestureDetector(
+              onTap: jump,
+              child: AnimatedContainer(
+                alignment: Alignment(0, birdY),
+                duration: Duration(milliseconds: 60),
+                color: Colors.blue,
+                child: MyBird(),
+              ),
             ),
           ),
           Expanded(
